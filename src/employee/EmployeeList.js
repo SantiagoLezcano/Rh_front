@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { NumericFormat } from "react-number-format";
+import { Link } from "react-router-dom";
 
 export default function EmployeeList() {
   const urlBase = "http://localhost:8081/rh-app/employee";
@@ -36,10 +38,21 @@ export default function EmployeeList() {
             //Iteration array
             employee.map((employee, index) => (
               <tr key={index}>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{employee.id}</th>
+                <td>{employee.name}</td>
+                <td>{employee.department}</td>
+                <td><NumericFormat value={employee.salary}
+                displayType="text"
+                thousandSeparator=','
+                prefix="$"
+                decimalScale={2}
+                fixedDecimalScale/>
+                </td>
+                <td className="text-center">
+                  <div>
+                    <Link to={'/edt/${employee.id}'}
+                  </div>
+                </td>
               </tr>
             ))
           }
