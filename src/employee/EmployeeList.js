@@ -19,6 +19,11 @@ export default function EmployeeList() {
     setEmployee(result.data);
   };
 
+  const deleteEmployee = async (id)=>{
+    await axios.delete(`${urlBase}/${id}`);
+    getEmployees();
+  }
+
   return (
     <div className="container">
       <div className="container text-center" style={{ margin: "30px" }}>
@@ -48,9 +53,13 @@ export default function EmployeeList() {
                 decimalScale={2}
                 fixedDecimalScale/>
                 </td>
-                <td className="text-center">
+                <td className='text-center'>
                   <div>
-                    <Link to={'/edt/${employee.id}'}
+                    <Link to={`/edt/${employee.id}`}
+                    className='btn btn-warning btn-sm me-3'>Editar</Link>
+                    <button onClick={() => deleteEmployee(employee.id)}
+                    className="btn btn-danger btn-sm"
+                    >Eliminar</button>
                   </div>
                 </td>
               </tr>

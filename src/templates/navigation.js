@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function () {
   return (
-    <div classNameName="container">
+    <div className="container">
       <nav className="navbar navbar-expand-lg narbar-dark bg-primary">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">

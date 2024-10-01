@@ -24,8 +24,8 @@ export default function AddEmployee() {
     navigation('/');
   };
   return (
-    <div classNameName="container">
-      <div classNameName="container text-center" style={{ margin: "30px" }}>
+    <div className="container">
+      <div className="container text-center" style={{ margin: "30px" }}>
         <h3>Agregar Empleado</h3>
       </div>
       <form onSubmit={(e) => onSubmit(e)}>
